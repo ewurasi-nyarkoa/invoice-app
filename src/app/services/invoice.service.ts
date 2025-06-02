@@ -44,10 +44,11 @@ export class InvoiceService {
     console.log('Invoice updated:', updatedInvoice);
   }
 
-  deleteInvoice(id: string): void {
+  deleteInvoice(id: string): Observable<boolean> {
     const currentInvoices = this._invoices.getValue();
     const filteredInvoices = currentInvoices.filter(invoice => invoice.id !== id);
     this._invoices.next(filteredInvoices);
     console.log(`Invoice with id ${id} deleted.`);
+    return of(true);
   }
 }

@@ -73,7 +73,14 @@
 
   <div class="invoice-detail-actions">
     <button class="edit-button">Edit</button>
-    <button class="delete-button">Delete</button>
+    <button class="delete-button" (click)="openDeleteModal()">Delete</button>
     <button class="mark-as-paid-button">Mark as Paid</button>
   </div>
 </div>
+
+<app-delete-confirmation-modal
+  *ngIf="isDeleteModalOpen"
+  [invoiceId]="currentInvoiceId"
+  (onCancel)="closeDeleteModal()"
+  (onConfirm)="confirmDelete()"
+></app-delete-confirmation-modal>
