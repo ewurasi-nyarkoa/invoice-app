@@ -3,11 +3,12 @@ import { InvoiceService } from '../../services/invoice.service';
 import { Invoice } from '../../models/invoice.model';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-invoice-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './invoice-list.component.html',
   styleUrls: ['./invoice-list.component.scss']
 })
