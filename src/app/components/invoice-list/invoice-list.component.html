@@ -24,7 +24,7 @@
       </div>
   
       <div *ngIf="invoices.length > 0" class="invoice-cards-container">
-        <div *ngFor="let invoice of invoices" class="invoice-card">
+        <div *ngFor="let invoice of invoices" class="invoice-card" [routerLink]="['/invoices', invoice.id]">
           <div class="invoice-card__id">#{{ invoice.id }}</div>
           <div class="invoice-card__client-name">{{ invoice.clientName }}</div>
           <div class="invoice-card__due-date">Due {{ invoice.paymentDue | date:'d MMM y' }}</div>
