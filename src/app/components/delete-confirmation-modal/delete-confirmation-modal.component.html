@@ -1,0 +1,10 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h2 class="modal-title">Confirm Deletion</h2>
+    <p class="modal-message">Are you sure you want to delete invoice #<span class="invoice-id-display">{{ invoiceId }}</span>? This action cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="button button--cancel" (click)="cancel()">Cancel</button>
+      <button class="button button--delete" (click)="confirm()">Delete</button>
+    </div>
+  </div>
+</div>
