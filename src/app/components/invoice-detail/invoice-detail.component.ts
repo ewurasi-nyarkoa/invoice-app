@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { InvoiceService } from '../../services/invoice.service';
 import { Invoice } from '../../models/invoice.model';
@@ -9,7 +9,7 @@ import { DeleteConfirmationModalComponent } from '../delete-confirmation-modal/d
 @Component({
   selector: 'app-invoice-detail',
   standalone: true,
-  imports: [CommonModule, DeleteConfirmationModalComponent],
+  imports: [CommonModule, DeleteConfirmationModalComponent, RouterLink],
   templateUrl: './invoice-detail.component.html',
   styleUrl: './invoice-detail.component.scss'
 })
