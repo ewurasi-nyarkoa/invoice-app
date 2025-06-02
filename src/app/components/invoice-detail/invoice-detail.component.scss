@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: var(--color-card-background);
     padding: 24px;
     border-radius: 8px;
     box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
@@ -26,7 +26,7 @@
       background: none;
       border: none;
       padding: 0;
-      color: #7E88C3; // blue-gray
+      color: var(--color-text-tertiary); // blue-gray
       font-weight: bold;
       cursor: pointer;
       display: flex;
@@ -37,7 +37,7 @@
       transition: color 0.2s ease-in-out;
 
       &:hover {
-        color: #0C0E16; // black-dark
+        color: var(--color-text-primary); // black-dark
       }
 
       &::before {
@@ -54,7 +54,7 @@
 
       span {
         font-size: 12px;
-        color: #888EB0; // gray-purple
+        color: var(--color-text-secondary); // gray-purple
         margin-right: 16px;
       }
 
@@ -91,7 +91,7 @@
   }
 
   .invoice-details-card {
-    background-color: white;
+    background-color: var(--color-card-background);
     padding: 24px;
     border-radius: 8px;
     box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
@@ -108,7 +108,7 @@
         font-size: 16px;
         line-height: 24px;
         letter-spacing: -0.8px;
-        color: #0C0E16; // black-dark
+        color: var(--color-text-primary); // black-dark
         margin-bottom: 4px;
       }
 
@@ -116,7 +116,7 @@
         font-size: 12px;
         line-height: 15px;
         letter-spacing: -0.25px;
-        color: #888EB0; // gray-purple
+        color: var(--color-text-secondary); // gray-purple
       }
     }
 
@@ -129,7 +129,7 @@
         font-size: 12px;
         line-height: 15px;
         letter-spacing: -0.25px;
-        color: #888EB0; // gray-purple
+        color: var(--color-text-secondary); // gray-purple
       }
     }
 
@@ -146,7 +146,7 @@
           font-size: 12px;
           line-height: 15px;
           letter-spacing: -0.25px;
-          color: #888EB0; // gray-purple
+          color: var(--color-text-secondary); // gray-purple
           margin-bottom: 8px;
         }
 
@@ -155,14 +155,14 @@
           font-size: 15px;
           line-height: 20px;
           letter-spacing: -0.3125px;
-          color: #0C0E16; // black-dark
+          color: var(--color-text-primary); // black-dark
         }
 
         p {
           font-size: 12px;
           line-height: 15px;
           letter-spacing: -0.25px;
-          color: #888EB0; // gray-purple
+          color: var(--color-text-secondary); // gray-purple
         }
       }
     }
@@ -174,7 +174,7 @@
         font-size: 12px;
         line-height: 15px;
         letter-spacing: -0.25px;
-        color: #888EB0; // gray-purple
+        color: var(--color-text-secondary); // gray-purple
         margin-bottom: 8px;
       }
 
@@ -183,13 +183,13 @@
         font-size: 15px;
         line-height: 20px;
         letter-spacing: -0.3125px;
-        color: #0C0E16; // black-dark
+        color: var(--color-text-primary); // black-dark
       }
     }
 
     .item-list {
       grid-column: 1 / span 2;
-      background-color: #F9FAFE; // light-grayish-blue
+      background-color: var(--color-button-secondary-bg); // light-grayish-blue
       border-radius: 8px 8px 0 0;
       padding: 24px;
 
@@ -204,7 +204,7 @@
           font-size: 12px;
           line-height: 15px;
           letter-spacing: -0.25px;
-          color: #888EB0; // gray-purple
+          color: var(--color-text-secondary); // gray-purple
         }
 
         th {
@@ -213,7 +213,7 @@
 
         td {
           font-weight: bold;
-          color: #0C0E16; // black-dark
+          color: var(--color-text-primary); // black-dark
         }
 
         td:nth-child(2),
@@ -226,8 +226,8 @@
 
     .grand-total {
       grid-column: 1 / span 2;
-      background-color: #373B53; // navy-medium
-      color: white;
+      background-color: var(--color-header-bg); // navy-medium
+      color: var(--color-text-primary); // white
       padding: 24px;
       border-radius: 0 0 8px 8px;
       display: flex;

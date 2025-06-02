@@ -1,6 +1,6 @@
 .edit-invoice-form-container {
   padding: 32px 24px 100px;
-  background-color: #F8F8FB; // light-grayish-blue
+  background-color: var(--color-background); // light-grayish-blue
 
   @media (min-width: 768px) {
     padding: 56px 48px 120px;
@@ -15,7 +15,7 @@
   .back-button {
     background-color: transparent;
     border: none;
-    color: #7E88C3; // blue-gray
+    color: var(--color-text-tertiary); // blue-gray
     font-weight: bold;
     cursor: pointer;
     display: flex;
@@ -27,7 +27,7 @@
     margin-bottom: 24px;
 
     &:hover {
-      color: #0C0E16; // black-dark
+      color: var(--color-text-primary); // black-dark
     }
 
     &::before {
@@ -42,16 +42,16 @@
     font-size: 24px;
     line-height: 32px;
     letter-spacing: -0.5px;
-    color: #0C0E16;
+    color: var(--color-text-primary);
     margin-bottom: 24px;
 
     .invoice-id-display {
-      color: #888EB0;
+      color: var(--color-text-secondary);
     }
   }
 
   .invoice-form {
-    background-color: white;
+    background-color: var(--color-card-background);
     padding: 24px;
     border-radius: 8px;
     box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
@@ -76,7 +76,7 @@
         font-size: 12px;
         line-height: 15px;
         letter-spacing: -0.25px;
-        color: #7E88C3;
+        color: var(--color-text-tertiary);
         margin-bottom: 8px;
       }
 
@@ -84,14 +84,14 @@
       select {
         width: 100%;
         padding: 16px 20px;
-        border: 1px solid #DFE3FA;
+        border: 1px solid var(--color-input-border);
         border-radius: 4px;
         font-weight: bold;
         font-size: 12px;
         line-height: 15px;
         letter-spacing: -0.25px;
-        color: #0C0E16;
-        background-color: white;
+        color: var(--color-input-text);
+        background-color: var(--color-input-background);
 
         &:focus {
           outline: none;
@@ -103,6 +103,7 @@
         padding-right: 40px; 
         background: url('../../../../public/assets/icon-calendar.svg') no-repeat right 15px center;
         background-size: 16px;
+        filter: var(--color-dark-mode-toggle-icon-filter, none); /* Apply filter for dark mode */
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -115,6 +116,7 @@
         appearance: none;
         background: url('../../../../public/assets/icon-arrow-down.svg') no-repeat right 15px center;
         background-size: 10px;
+        filter: var(--color-dark-mode-toggle-icon-filter, none); /* Apply filter for dark mode */
         cursor: pointer; // Add cursor pointer to select
       }
     }
@@ -159,7 +161,7 @@
               font-size: 12px;
               line-height: 15px;
               letter-spacing: -0.25px;
-              color: #7E88C3;
+              color: var(--color-text-tertiary);
               flex: 1;
             }
 
@@ -223,7 +225,7 @@
               font-size: 12px;
               line-height: 15px;
               letter-spacing: -0.25px;
-              color: #0C0E16;
+              color: var(--color-text-primary);
             }
           }
 
@@ -237,6 +239,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            img {
+              filter: var(--color-dark-mode-toggle-icon-filter, none); /* Apply filter for dark mode */
+            }
           }
 
           @media (min-width: 768px) {
@@ -269,8 +275,8 @@
 
         .add-new-item-button {
           width: 100%;
-          background-color: #F9FAFE;
-          color: #7E88C3;
+          background-color: var(--color-button-secondary-bg);
+          color: var(--color-button-secondary-text);
           border: none;
           border-radius: 24px;
           padding: 16px;
@@ -282,7 +288,7 @@
           transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
           &:hover {
-            background-color: #DFE3FA;
+            background-color: var(--color-button-secondary-hover-bg);
           }
         }
       }
@@ -290,11 +296,11 @@
 
     .form-actions {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       gap: 8px;
       margin-top: 40px;
       padding: 24px;
-      background-color: white;
+      background-color: var(--color-card-background);
       box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
 
       @media (min-width: 768px) {
@@ -302,7 +308,6 @@
         padding-top: 0;
         box-shadow: none;
         background-color: transparent;
-        position: static;
       }
 
       .button {
@@ -316,12 +321,21 @@
         cursor: pointer;
         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
-        &--cancel {
-          background-color: #F9FAFE;
-          color: #7E88C3;
+        &--discard {
+          background-color: var(--color-button-secondary-bg);
+          color: var(--color-button-secondary-text);
 
           &:hover {
-            background-color: #DFE3FA;
+            background-color: var(--color-button-secondary-hover-bg);
+          }
+        }
+
+        &--draft {
+          background-color: #373B53;
+          color: white;
+
+          &:hover {
+            background-color: #0C0E16;
           }
         }
 

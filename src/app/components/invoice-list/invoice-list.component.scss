@@ -1,5 +1,7 @@
 .invoice-list-container {
     padding: 24px;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
   
     @media (min-width: 768px) {
       padding: 40px 48px;
@@ -28,7 +30,7 @@
       font-size: 20px;
       line-height: 22px;
       letter-spacing: -0.625px;
-      color: #0C0E16; 
+      color: var(--color-text-primary); 
       margin-bottom: 4px;
     }
   
@@ -36,7 +38,7 @@
       font-size: 12px;
       line-height: 15px;
       letter-spacing: -0.25px;
-      color: #888EB0; 
+      color: var(--color-text-secondary); 
     }
   }
   
@@ -56,19 +58,20 @@
       font-size: 12px;
       line-height: 15px;
       letter-spacing: -0.25px;
-      color: #0C0E16; 
+      color: var(--color-text-primary); 
       margin-right: 12px;
     }
   
     img {
       width: 10px;
       height: 7px;
+      filter: var(--color-filter-icon-filter, none); /* Apply filter for dark mode arrow */
     }
   }
   
   .new-invoice-button {
-    background-color: #7C5DFA; 
-    color: white;
+    background-color: var(--color-button-primary-bg); 
+    color: var(--color-button-primary-text);
     border: none;
     border-radius: 24px;
     padding: 8px 15px;
@@ -82,11 +85,12 @@
     transition: background-color 0.2s ease-in-out;
 
     &:hover {
-      background-color: #9277FF; 
+      background-color: var(--color-button-primary-hover-bg); 
     }
   
     img {
-      background-color: white;
+      background-color: var(--color-button-icon-bg);
+      filter: var(--color-button-icon-filter, none); /* Apply filter for dark mode plus icon */
       border-radius: 50%;
       padding: 5px;
       margin-right: 8px;
@@ -105,7 +109,7 @@
   }
   
   .invoice-card {
-    background-color: white;
+    background-color: var(--color-card-background);
     padding: 24px 20px;
     border-radius: 8px;
     box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
@@ -126,7 +130,7 @@
       font-size: 12px;
       line-height: 15px;
       letter-spacing: -0.25px;
-      color: #0C0E16; 
+      color: var(--color-text-primary); 
       grid-column: 1 / 2;
       grid-row: 1;
     }
@@ -136,7 +140,7 @@
       font-size: 12px;
       line-height: 15px;
       letter-spacing: -0.25px;
-      color: #888EB0;
+      color: var(--color-text-secondary);
       grid-column: 2 / 3;
       grid-row: 1;
     }
@@ -145,7 +149,7 @@
       font-size: 12px;
       line-height: 15px;
       letter-spacing: -0.25px;
-      color: #7E88C3; 
+      color: var(--color-text-tertiary); 
       grid-column: 1 / 2;
       grid-row: 2;
     }
@@ -155,7 +159,7 @@
       font-size: 16px;
       line-height: 24px;
       letter-spacing: -0.8px;
-      color: #0C0E16; 
+      color: var(--color-text-primary); 
       grid-column: 1 / 2;
       grid-row: 3;
     }
@@ -204,11 +208,11 @@
       }
 
       &--draft {
-        background-color: rgba(55, 59, 83, 0.06);
-        color: #373B53;
+        background-color: var(--color-button-secondary-bg);
+        color: var(--color-button-secondary-text);
 
         .invoice-card__status-dot {
-          background-color: #373B53;
+          background-color: var(--color-text-secondary);
         }
       }
     }
@@ -268,11 +272,12 @@
   .empty-state__title {
     font-size: 1.5em;
     margin-bottom: 10px;
+    color: var(--color-text-primary);
   }
   
   .empty-state__text {
     font-size: 1em;
-    color: #888;
+    color: var(--color-text-secondary);
   }
   
   .empty-state__new-button-text {
