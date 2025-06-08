@@ -50,4 +50,13 @@ export class InvoiceDetailComponent implements OnInit {
       });
     }
   }
+
+  markAsPaid(): void {
+    this.invoice$.subscribe(invoice => {
+      if (invoice && invoice.status !== 'paid') {
+        const updatedInvoice: Invoice = { ...invoice, status: 'paid' };
+        this.invoiceService.updateInvoice(updatedInvoice);
+      }
+    }).unsubscribe(); // Unsubscribe immediately after getting the value
+  }
 }

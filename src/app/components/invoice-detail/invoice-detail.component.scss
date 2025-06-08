@@ -1,5 +1,8 @@
+@import '../../../../src/styles.scss';
+
 .invoice-detail-container {
     padding: 24px;
+    background-color: var(--color-background); 
 
     @media (min-width: 768px) {
       padding: 40px;
@@ -26,18 +29,16 @@
       background: none;
       border: none;
       padding: 0;
-      color: var(--color-text-tertiary); // blue-gray
+      color: var(--color-text-tertiary); 
       font-weight: bold;
       cursor: pointer;
       display: flex;
       align-items: center;
-      font-size: 12px;
-      line-height: 15px;
-      letter-spacing: -0.25px;
+      @include font-style('heading-h3-small');
       transition: color 0.2s ease-in-out;
 
       &:hover {
-        color: var(--color-text-primary); // black-dark
+        color: var(--color-text-primary);
       }
 
       &::before {
@@ -46,6 +47,8 @@
         display: inline-block;
         vertical-align: middle;
       }
+
+   
     }
 
     .status-bar {
@@ -53,8 +56,8 @@
       align-items: center;
 
       span {
-        font-size: 12px;
-        color: var(--color-text-secondary); // gray-purple
+        @include font-style('body-1');
+        color: var(--color-text-secondary); 
         margin-right: 16px;
       }
 
@@ -64,6 +67,7 @@
         display: flex;
         align-items: center;
         text-transform: capitalize;
+        @include font-style('heading-h3-small');
         font-weight: bold;
         font-size: 12px;
         line-height: 15px;
@@ -88,6 +92,58 @@
         }
       }
     }
+
+    .actions-desktop {
+      display: none; 
+
+      @media (min-width: 768px) {
+        display: flex; 
+        gap: 8px;
+      }
+
+      button {
+        border: none;
+        border-radius: 24px;
+        padding: 16px 24px;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: -0.25px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+      }
+
+      .edit-button {
+        background-color: #F9FAFE;
+        color: #7E88C3;
+
+        &:hover {
+          background-color: #DFE3FA;
+        }
+      }
+
+      .delete-button {
+        background-color: #EC5757;
+        color: white;
+
+        &:hover {
+          background-color: #FF9797;
+        }
+      }
+
+      .mark-as-paid-button {
+        background-color: #7C5DFA;
+        color: white;
+
+        &:hover {
+          background-color: #9277FF;
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      justify-content: space-between;
+    }
   }
 
   .invoice-details-card {
@@ -104,19 +160,21 @@
       grid-column: 1 / span 2;
 
       .invoice-id {
+        @include font-style('heading-h3');
         font-weight: bold;
         font-size: 16px;
         line-height: 24px;
         letter-spacing: -0.8px;
-        color: var(--color-text-primary); // black-dark
+        color: var(--color-text-primary); 
         margin-bottom: 4px;
       }
 
       .invoice-description {
+        @include font-style('body-1');
         font-size: 12px;
         line-height: 15px;
         letter-spacing: -0.25px;
-        color: var(--color-text-secondary); // gray-purple
+        color: var(--color-text-secondary); 
       }
     }
 
@@ -126,10 +184,11 @@
       text-align: right;
 
       p {
+        @include font-style('body-1');
         font-size: 12px;
         line-height: 15px;
         letter-spacing: -0.25px;
-        color: var(--color-text-secondary); // gray-purple
+        color: var(--color-text-secondary); 
       }
     }
 
@@ -143,26 +202,29 @@
         flex: 1;
 
         .label {
+          @include font-style('body-1');
           font-size: 12px;
           line-height: 15px;
           letter-spacing: -0.25px;
-          color: var(--color-text-secondary); // gray-purple
+          color: var(--color-text-secondary);
           margin-bottom: 8px;
         }
 
         .value {
+          @include font-style('heading-h3');
           font-weight: bold;
           font-size: 15px;
           line-height: 20px;
           letter-spacing: -0.3125px;
-          color: var(--color-text-primary); // black-dark
+          color: var(--color-text-primary);
         }
 
         p {
+          @include font-style('body-1');
           font-size: 12px;
           line-height: 15px;
           letter-spacing: -0.25px;
-          color: var(--color-text-secondary); // gray-purple
+          color: var(--color-text-secondary); 
         }
       }
     }
@@ -171,25 +233,27 @@
       grid-column: 1 / span 2;
 
       .label {
+        @include font-style('body-1');
         font-size: 12px;
         line-height: 15px;
         letter-spacing: -0.25px;
-        color: var(--color-text-secondary); // gray-purple
+        color: var(--color-text-secondary); 
         margin-bottom: 8px;
       }
 
       .value {
+        @include font-style('heading-h3');
         font-weight: bold;
         font-size: 15px;
         line-height: 20px;
         letter-spacing: -0.3125px;
-        color: var(--color-text-primary); // black-dark
+        color: var(--color-text-primary); 
       }
     }
 
     .item-list {
       grid-column: 1 / span 2;
-      background-color: var(--color-button-secondary-bg); // light-grayish-blue
+      background-color: var(--color-button-secondary-bg); 
       border-radius: 8px 8px 0 0;
       padding: 24px;
 
@@ -199,12 +263,13 @@
 
         th,
         td {
+          @include font-style('heading-h3-small');
           padding: 8px 0;
           text-align: left;
           font-size: 12px;
           line-height: 15px;
           letter-spacing: -0.25px;
-          color: var(--color-text-secondary); // gray-purple
+          color: var(--color-text-secondary); 
         }
 
         th {
@@ -213,7 +278,7 @@
 
         td {
           font-weight: bold;
-          color: var(--color-text-primary); // black-dark
+          color: var(--color-text-primary); 
         }
 
         td:nth-child(2),
@@ -226,8 +291,8 @@
 
     .grand-total {
       grid-column: 1 / span 2;
-      background-color: var(--color-header-bg); // navy-medium
-      color: var(--color-text-primary); // white
+      background-color: var(--color-header-bg); 
+      color: var(--color-text-primary); 
       padding: 24px;
       border-radius: 0 0 8px 8px;
       display: flex;
@@ -235,12 +300,14 @@
       align-items: center;
 
       p:first-child {
+        @include font-style('body-1');
         font-size: 12px;
         line-height: 15px;
         letter-spacing: -0.25px;
       }
 
       p:last-child {
+        @include font-style('heading-h2');
         font-weight: bold;
         font-size: 20px;
         line-height: 32px;
@@ -299,14 +366,20 @@
   }
 
   .invoice-detail-actions {
-    background-color: white;
+  
     padding: 24px;
     border-radius: 8px;
     box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
-    display: flex;
+    display: flex; 
     justify-content: center;
     gap: 8px;
     margin-top: 56px;
+
+    &.actions-mobile {
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
 
     @media (min-width: 768px) {
       justify-content: flex-end;
@@ -325,29 +398,29 @@
     }
 
     .edit-button {
-      background-color: #F9FAFE; // light-grayish-blue
-      color: #7E88C3; // blue-gray
+      background-color: #F9FAFE;
+      color: #7E88C3;
 
       &:hover {
-        background-color: #DFE3FA; // lavender-light
+        background-color: #DFE3FA;
       }
     }
 
     .delete-button {
-      background-color: #EC5757; // red-primary
+      background-color: #EC5757;
       color: white;
 
       &:hover {
-        background-color: #FF9797; // light-red
+        background-color: #FF9797;
       }
     }
 
     .mark-as-paid-button {
-      background-color: #7C5DFA; // purple-primary
+      background-color: #7C5DFA;
       color: white;
 
       &:hover {
-        background-color: #9277FF; // purple-light
+        background-color: #9277FF;
       }
     }
   }

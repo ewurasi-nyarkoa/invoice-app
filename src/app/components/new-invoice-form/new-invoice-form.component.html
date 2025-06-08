@@ -102,7 +102,7 @@
           <div class="form-group">
             <input type="number" formControlName="price" (input)="onPriceChange(item)" />
           </div>
-          <div class="form-group total-display">
+          <div class="total-display">
             <span>{{ item.get('total')?.value | currency:'GBP':'symbol':'1.2-2' }}</span>
           </div>
           <button type="button" class="delete-item-button" (click)="removeItem(i)">
@@ -114,9 +114,9 @@
     </section>
 
     <div class="form-actions">
-      <button type="button" class="button button--discard">Discard</button>
-      <button type="button" class="button button--draft">Save as Draft</button>
-      <button type="submit" class="button button--save">Save & Send</button>
+      <button type="button" class="button--discard">Discard</button>
+      <button type="button" class="button--draft">Save as Draft</button>
+      <button type="submit" class="button--save">Save & Send</button>
     </div>
   </form>
 </div>
