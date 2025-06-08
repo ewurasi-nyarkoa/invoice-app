@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ThemeService } from './services/theme.service';
 import { CommonModule } from '@angular/common';
+import { InvoiceService } from './services/invoice.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'invoice-app';
 
-  constructor(public themeService: ThemeService) {}
+  constructor(public themeService: ThemeService, private invoiceService: InvoiceService) {}
+
+  ngOnInit(): void {
+    this.invoiceService.loadInvoices().subscribe();
+  }
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
