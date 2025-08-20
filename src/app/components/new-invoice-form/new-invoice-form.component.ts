@@ -18,7 +18,7 @@ export class NewInvoiceFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private invoiceService: InvoiceService,
-    private router: Router
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -52,6 +52,10 @@ export class NewInvoiceFormComponent implements OnInit {
 
   get items(): FormArray {
     return this.invoiceForm.get('items') as FormArray;
+  }
+
+  get itemFormGroups(): FormGroup[] {
+    return this.items.controls as FormGroup[];
   }
 
   newItem(): FormGroup {
