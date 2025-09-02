@@ -31,11 +31,11 @@
 
 
 import { Component, OnInit, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
 import { ThemeService } from './services/theme.service';
 import { CommonModule } from '@angular/common';
 import { InvoiceService } from './services/invoice.service';
-import { OidcSecurityService } from 'angular-auth-oidc-client'; // <-- Add this import
+import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Component({
   selector: 'app-root',
@@ -46,18 +46,20 @@ import { OidcSecurityService } from 'angular-auth-oidc-client'; // <-- Add this 
 })
 export class AppComponent implements OnInit {
   title = 'invoice-app';
-  private readonly oidcSecurityService = inject(OidcSecurityService); // <-- Inject the service
-  isAuthenticated = false; // <-- Add a property to track authentication status
+  private readonly oidcSecurityService = inject(OidcSecurityService);
+  isAuthenticated = false;
 
-  constructor(public themeService: ThemeService, private invoiceService: InvoiceService) {}
+  constructor(public themeService: ThemeService, private invoiceService: InvoiceService, private router: Router) {}
 
   ngOnInit(): void {
-    // Check authentication status on app load.
-  this.oidcSecurityService.checkAuth().subscribe(({ isAuthenticated, userData }) => {
-      // You can log this to see if the process is working.
+    this.oidcSecurityService.checkAuth().subscribe(({ isAuthenticated, userData }) => {
+      this.isAuthenticated = isAuthenticated;
       console.log('Authentication status:', isAuthenticated);
       if (isAuthenticated) {
         console.log('User data:', userData);
+        this.router.navigate(['/invoices/new']);
+      } else {
+        this.router.navigate(['/invoices']);
       }
     });
 
@@ -71,7 +73,9 @@ export class AppComponent implements OnInit {
 
   // Method to log out the user
   logout(): void {
-    this.oidcSecurityService.logoff();
+    this.oidcSecurityService.logoffLocal();
+    this.isAuthenticated = false;
+    this.router.navigate(['/invoices']);
   }
 
   toggleTheme(): void {
