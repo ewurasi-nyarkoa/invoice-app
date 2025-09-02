@@ -17,7 +17,7 @@ export class ThemeService {
     if (savedTheme) {
       this.setTheme(savedTheme);
     } else {
-      // Check for user's system preference
+      // Check for user's system prtext mebprovidedIn: 'root':eference
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       this.setTheme(prefersDark ? 'dark' : 'light');
     }

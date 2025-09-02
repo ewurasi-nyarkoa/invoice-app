@@ -24,6 +24,10 @@
              src="assets/image-avatar.jpg"
              alt="Profile">
       </div>
+      <div class="auth-buttons">
+  <button *ngIf="!isAuthenticated" (click)="login()">Login</button>
+  <button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
+</div>
     
   </div>
   </div>
