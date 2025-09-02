@@ -41,12 +41,12 @@ export class NewInvoiceFormComponent implements OnInit {
       items: this.fb.array([]),
       paymentTerms: [1, Validators.required],
       description: ['', Validators.required],
-      createdAt: ['', Validators.required], // Will be set automatically later or handled by a date picker
-      paymentDue: ['', Validators.required], // Will be calculated based on createdAt and paymentTerms
-      total: [{ value: 0, disabled: true }], // Total will be calculated
+      createdAt: ['', Validators.required],
+      paymentDue: ['', Validators.required], 
+      total: [{ value: 0, disabled: true }], 
     });
 
-    // Add a default item row
+   
     this.addItem();
   }
 
@@ -75,27 +75,24 @@ export class NewInvoiceFormComponent implements OnInit {
     this.items.removeAt(i);
   }
 
-  // TODO: Implement total calculation for items and grand total
-  // TODO: Implement date calculation for paymentDue
 
   onSubmit(): void {
     if (this.invoiceForm.valid) {
       const newInvoice: Invoice = this.invoiceForm.value;
-      // Generate a simple random ID (replace with a better method in production)
+    
       newInvoice.id = Math.random().toString(36).substring(2, 8).toUpperCase();
 
-      // Set creation date (basic implementation, use a date picker in a real app)
+     
       if (!newInvoice.createdAt) {
          newInvoice.createdAt = new Date().toISOString().split('T')[0];
       }
 
-      // Calculate payment due date (basic implementation)
+   
       const createdAtDate = new Date(newInvoice.createdAt);
       createdAtDate.setDate(createdAtDate.getDate() + newInvoice.paymentTerms);
       newInvoice.paymentDue = createdAtDate.toISOString().split('T')[0];
 
 
-      // Recalculate totals to ensure correctness before submitting
       newInvoice.items.forEach(item => {
         item.total = item.quantity * item.price;
       });
@@ -104,14 +101,14 @@ export class NewInvoiceFormComponent implements OnInit {
 
       this.invoiceService.addInvoice(newInvoice);
       console.log('Form Submitted', newInvoice);
-      this.router.navigate(['/invoices']); // Navigate back to the list after submission
+      this.router.navigate(['/invoices']);
     } else {
       console.log('Form is invalid');
-      // TODO: Display validation errors to the user
+ 
     }
   }
 
-  // Helper to calculate item total
+ 
   calculateItemTotal(itemFormGroup: FormGroup): void {
     const quantity = itemFormGroup.get('quantity')?.value || 0;
     const price = itemFormGroup.get('price')?.value || 0;
@@ -119,7 +116,6 @@ export class NewInvoiceFormComponent implements OnInit {
     this.calculateGrandTotal();
   }
 
-  // Helper to calculate grand total
   calculateGrandTotal(): void {
     const itemsTotal = this.items.controls.reduce((sum, itemControl) => {
       const itemTotal = itemControl.get('total')?.value || 0;
@@ -128,7 +124,7 @@ export class NewInvoiceFormComponent implements OnInit {
     this.invoiceForm.get('total')?.setValue(itemsTotal, { emitEvent: false });
   }
 
-  // Add listeners to item price and quantity changes
+
   onQuantityChange(itemFormGroup: FormGroup): void {
     this.calculateItemTotal(itemFormGroup);
   }
